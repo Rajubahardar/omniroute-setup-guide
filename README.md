@@ -1,390 +1,625 @@
-markdown
-# 🚀 OmniRoute Setup Guide – Free AI Gateway in VS Code
+# 🚀 OmniRoute Setup Guide
 
-A complete, step-by-step guide to install and use **OmniRoute** – the free AI gateway that gives you access to **1200+ AI models** (Claude, GPT, Gemini, DeepSeek, Kimi, GLM and more) directly inside **VS Code Copilot Chat** – **completely free**.
+### Free AI Gateway for VS Code Copilot Chat
 
-> Perfect for developers who want powerful AI assistance without subscription costs.
+> **One gateway. Hundreds of providers. 1200+ AI models.**
+>
+> A practical, beginner-friendly guide to installing **OmniRoute**, connecting it to **VS Code**, and using multiple AI models through Copilot Chat.
+
+---
+
+<div align="center">
+
+**🧠 Claude · GPT · Gemini · DeepSeek · Kimi · GLM · and more**
+
+**⚡ Automatic fallback · 💾 Token compression · 🔌 Multiple providers**
+
+</div>
+
+---
+
+## 📌 Overview
+
+**OmniRoute** is a free, self-hosted AI gateway designed to connect multiple AI providers and models through a single local API.
+
+According to the source guide, OmniRoute:
+
+- ✅ Aggregates **350+ AI providers**
+- ✅ Includes **150+ providers with free tiers**
+- ✅ Provides access to **1200+ AI models**
+- ✅ Works with **VS Code Copilot Chat**, Cursor, and other compatible tools
+- ✅ Supports **automatic provider fallback**
+- ✅ Uses token compression to reduce usage by approximately **15–95%**
+- ✅ Is **open source under the MIT License**
+
+> 💡 **Why use it?**  
+> Instead of configuring every AI provider separately, OmniRoute gives you a single gateway through which you can manage and use multiple models.
 
 ---
 
 ## 📖 Table of Contents
-- [What is OmniRoute?](#what-is-omniroute)
-- [Prerequisites](#prerequisites)
-- [Installation](#installation)
-- [Dashboard Overview](#dashboard-overview)
-- [Creating API Keys](#creating-api-keys)
-- [VS Code Setup](#vs-code-setup)
-- [Available Models](#available-models)
-- [Daily Usage](#daily-usage)
-- [Troubleshooting](#troubleshooting)
-- [Tips & Tricks](#tips--tricks)
+
+- [✨ Features](#-features)
+- [📋 Prerequisites](#-prerequisites)
+- [🛠️ Installation](#️-installation)
+- [📊 Dashboard](#-dashboard)
+- [🔑 Creating an API Key](#-creating-an-api-key)
+- [💻 VS Code Setup](#-vs-code-setup)
+- [🤖 Available Models](#-available-models)
+- [📅 Daily Workflow](#-daily-workflow)
+- [❓ Troubleshooting](#-troubleshooting)
+- [💡 Tips & Tricks](#-tips--tricks)
+- [🔗 Resources](#-resources)
+- [📄 License](#-license)
+- [🙏 Acknowledgments](#-acknowledgments)
 
 ---
 
-## 🤖 What is OmniRoute?
+## ✨ Features
 
-OmniRoute is a free, self-hosted AI gateway that:
-
-- ✅ Aggregates **350+ AI providers** (150+ with free tiers)
-- ✅ Gives access to **1200+ models** from OpenAI, Anthropic, Google, DeepSeek, Kimi, and more
-- ✅ Works inside **VS Code Copilot Chat**, Cursor, and other tools
-- ✅ Automatically **falls back** if one provider fails
-- ✅ Compresses tokens to **save 15–95%** of usage
-
-**Best of all: It's 100% free and open source (MIT License).**
+| Feature | Description |
+|---|---|
+| 🤖 **1200+ Models** | Access models from multiple major AI providers |
+| 🌐 **350+ Providers** | Connect many AI services through one gateway |
+| 🆓 **Free Tiers** | Use providers that offer free usage |
+| 🔄 **Auto Fallback** | Automatically switch providers when one fails |
+| 🗜️ **Token Compression** | Reduce token consumption by approximately 15–95% |
+| 💻 **VS Code Integration** | Use AI models directly from Copilot Chat |
+| 📊 **Analytics** | Monitor usage and costs from the dashboard |
+| 🔑 **API Key Management** | Create and manage keys from one interface |
 
 ---
 
 ## 📋 Prerequisites
 
-Before you begin, make sure you have:
+Before starting, make sure you have:
 
-- ✅ A computer running **Windows 10/11**, macOS, or Linux
-- ✅ A stable **internet connection**
-- ✅ **VS Code** installed (free from [code.visualstudio.com](https://code.visualstudio.com))
-- ✅ A **GitHub account** (optional, to save this guide)
+- 🖥️ Windows 10/11, macOS, or Linux
+- 🌐 A stable internet connection
+- 💻 [VS Code](https://code.visualstudio.com/) installed
+- 🟢 Node.js installed
+- 🐙 A GitHub account *(optional)*
 
-> **Note:** OmniRoute works with **Node.js**, which we'll install in the next step.
+> **Note:** OmniRoute requires **Node.js** and `npm`.
 
 ---
 
-## 🔧 Installation
+# 🛠️ Installation
 
-### Step 1: Install Node.js
+## 1️⃣ Install Node.js
 
-> **Why?** Node.js is required to run OmniRoute and its package manager `npm`.
+Node.js is required to run OmniRoute and its package manager, `npm`.
 
-1. Go to the official Node.js website: **[nodejs.org](https://nodejs.org)**
-2. Click the **"Download Node.js (LTS)"** button
-   - LTS is the stable, recommended version
-3. Run the downloaded installer (`node-vXX.XX.XX-x64.msi`)
-4. **IMPORTANT:** During installation, check the box that says:
-   - **"Automatically install the necessary tools"** or
-   - **"Add to PATH"**
-5. Click **"Next"** through all screens and **"Install"**
-6. **Restart your computer** (important for PATH to update)
+1. Visit the official [Node.js website](https://nodejs.org/).
+2. Download the **LTS** version.
+3. Run the installer.
+4. Make sure Node.js is added to your system `PATH`.
+5. Complete the installation.
+6. Restart your computer if necessary.
 
-#### ✅ Verify Installation
+### ✅ Verify Node.js
 
-Open **VS Code** or **Command Prompt** and run:
+Open a terminal in VS Code or Command Prompt:
 
 ```bash
 node --version
-# Should output: v24.20.0 or similar
-
 npm --version
-# Should output: 10.x.x or similar
-https://images/01-vscode-welcome.png
+```
 
-Step 2: Install OmniRoute
-Open a terminal in VS Code (Ctrl + ) and run:
+You should see installed version numbers similar to:
 
-bash
+```text
+v24.x.x
+10.x.x
+```
+
+---
+
+## 2️⃣ Install OmniRoute
+
+Open the VS Code terminal:
+
+**Terminal → New Terminal**
+
+Then run:
+
+```bash
 npm install -g omniroute
-This will install OmniRoute globally on your system.
+```
 
-⏱️ This takes about 1-3 minutes. You'll see some warnings – they are normal and harmless.
+This installs OmniRoute globally.
 
-https://images/02-vscode-start.png
+> ⏱️ Installation may take a few minutes. Some npm warnings may appear during installation.
 
-Step 3: Start OmniRoute
-Run this command to start the server:
+---
 
-bash
+## 3️⃣ Start OmniRoute
+
+Run:
+
+```bash
 omniroute
-You should see:
+```
 
-text
-🚀 OmniRoute v3.8.50
+A successful startup should provide local endpoints similar to:
+
+```text
+🚀 OmniRoute
 📡 Dashboard: http://localhost:20128
-🔗 API: http://localhost:20128/v1
-Important: Keep this terminal window open! Closing it will stop OmniRoute.
+🔗 API:       http://localhost:20128/v1
+```
 
-https://images/03-terminal-omniroute.png
+### ⚠️ Important
 
-Step 4: Create a Quick Start Batch File (Optional)
-To make it easier to start OmniRoute later:
+**Keep the terminal running.**
 
-Open Notepad
+Closing the terminal stops the OmniRoute server.
 
-Copy and paste this:
+---
 
-batch
+## 4️⃣ Optional: Create a Quick-Start File
+
+If you're using Windows, you can create a `.bat` file so OmniRoute can be started with a double-click.
+
+Create:
+
+```text
+start-omniroute.bat
+```
+
+Add:
+
+```bat
 @echo off
 echo Starting OmniRoute...
 echo.
 omniroute
 pause
-Save it to your Desktop as: start-omniroute.bat
+```
 
-Now you can double-click this file anytime to start OmniRoute
+Save it on your Desktop.
 
-📊 Dashboard Overview
-Open your browser and go to:
+Now you can double-click the file whenever you want to start OmniRoute.
 
-text
+---
+
+# 📊 Dashboard
+
+Once OmniRoute is running, open:
+
+```text
 http://localhost:20128
-You'll see the OmniRoute dashboard – your control center for AI models.
+```
 
-https://images/04-dashboard-home.png
+The dashboard acts as the main control center.
 
-What's on the Dashboard:
-Section	What You Can Do
-Home	Quick start guide and welcome
-Providers	Connect AI providers (OpenAI, Anthropic, Google, Kimi, etc.)
-API Keys	Generate and manage API keys
-Combos	Group providers for automatic fallback
-Analytics	Track usage and costs
-Free Tiers	See all free tokens available
-https://images/05-dashboard-features.png
+### Dashboard Sections
 
-🔑 Creating API Keys
-You need an API key to connect OmniRoute with VS Code and other tools.
+| Section | Purpose |
+|---|---|
+| 🏠 **Home** | Quick-start information |
+| 🌐 **Providers** | Connect AI providers |
+| 🔑 **API Keys** | Create and manage API keys |
+| 🔄 **Combos** | Group providers for fallback |
+| 📈 **Analytics** | Monitor usage and costs |
+| 🆓 **Free Tiers** | View available free-token resources |
 
-Step 1: Navigate to API Keys
-In the dashboard, click "API Keys" in the left sidebar
+### 📸 Dashboard
 
-Step 2: Generate a Key
-Click "Generate New Key"
+Place your screenshot here:
 
-Name it (e.g., "My VS Code Key")
+```text
+images/04-dashboard-home.png
+```
 
-Click "Generate"
+---
 
-Step 3: Copy and Save
-COPY THE KEY IMMEDIATELY! This is the only time you'll see it.
+# 🔑 Creating an API Key
 
-Save it somewhere safe (like a password manager or .env file)
+You need an API key to connect OmniRoute with VS Code and other compatible tools.
 
-https://images/06-api-keys.png
+### Step 1 — Open API Keys
 
-⚠️ Security Tip: Treat your API key like a password. Never share it, commit it to GitHub, or paste it in public chats.
+From the OmniRoute dashboard, select:
 
-💻 VS Code Setup
-Step 1: Install OmniCopilot Extension
-Open VS Code
+**API Keys → Generate New Key**
 
-Press Ctrl + Shift + X to open Extensions
+### Step 2 — Name the Key
 
-Search for: "OmniCopilot"
+For example:
 
-Click "Install"
+```text
+My VS Code Key
+```
 
-https://images/07-omniroute-running.png
+Then click **Generate**.
 
-Step 2: Configure OmniCopilot
-Press Ctrl + , to open Settings
+### Step 3 — Save the Key
 
-Search for: "OmniCopilot"
+Copy the API key immediately and store it securely.
 
-Fill in:
+> 🔐 **Security:** Treat your API key like a password.
+>
+> **Never** publish it, commit it to GitHub, or paste it into public chats.
 
-Server URL: http://localhost:20128
+### 📸 API Key Screenshot
 
-API Key: Paste your key from the dashboard
+```text
+images/06-api-keys.png
+```
 
-Click "Save & Test"
+---
 
-You should see "Online — 479 models available"
+# 💻 VS Code Setup
 
-Step 3: Open Copilot Chat
-Open Copilot Chat by:
+## 1️⃣ Install OmniCopilot
 
-Pressing Ctrl + Shift + I
+Open VS Code.
 
-OR clicking the Copilot icon (💬) in the left sidebar
+Press:
 
-Click the model dropdown at the top
+```text
+Ctrl + Shift + X
+```
 
-Select "OmniRoute" or any model (like auto, aug/gpt5.6-luna, etc.)
+Search for:
 
-https://images/08-model-picker.png
+```text
+OmniCopilot
+```
 
-🤖 Available Models
-Once connected, you can access 1200+ models, including:
+Click **Install**.
 
-Provider	Models	Context	Capabilities
-GPT	5.1, 5.2, 5.4, 5.5, 5.6, Luna, Sol, Terra	200K	Vision, Tools
-Claude	Haiku 4.5, Sonnet, Opus 4.5, Fable 5	1M	Vision, Tools
-Google	Gemini 3.1 Pro Preview	1M	Vision, Tools
-Kimi	K2.6, K2.7	1M	Vision, Tools
-GLM	GLM 5.2	200K	Tools
-https://images/09-all-models.png
+### 📸 Extension Screenshot
 
-Pro Tip: Use "auto" model
-The "auto" model is recommended – OmniRoute automatically picks the best available provider for your request.
+```text
+images/07-omniroute-running.png
+```
 
-📅 Daily Usage
-Your Simple 3-Step Routine:
-Step 1: Start OmniRoute
-Double-click your start-omniroute.bat file on your Desktop.
+---
 
-OR if you prefer the terminal:
+## 2️⃣ Configure OmniCopilot
 
-bash
+Open VS Code Settings:
+
+```text
+Ctrl + ,
+```
+
+Search for:
+
+```text
+OmniCopilot
+```
+
+Enter your configuration:
+
+| Setting | Value |
+|---|---|
+| **Server URL** | `http://localhost:20128` |
+| **API Key** | Your OmniRoute API key |
+
+Then select:
+
+**Save & Test**
+
+A successful connection should show an online status and available models.
+
+---
+
+## 3️⃣ Open Copilot Chat
+
+Open Copilot Chat using:
+
+```text
+Ctrl + Shift + I
+```
+
+Or click the **Copilot** icon in the VS Code sidebar.
+
+Then:
+
+1. Open the model selector.
+2. Select **OmniRoute** or an available model.
+3. Start chatting.
+
+### 📸 Model Picker
+
+```text
+images/08-model-picker.png
+```
+
+---
+
+# 🤖 Available Models
+
+The original guide lists models from several major providers.
+
+| Provider | Example Models | Context | Capabilities |
+|---|---|---:|---|
+| **GPT** | 5.1, 5.2, 5.4, 5.5, 5.6, Luna, Sol, Terra | 200K | Vision, Tools |
+| **Claude** | Haiku 4.5, Sonnet, Opus 4.5, Fable 5 | 1M | Vision, Tools |
+| **Google** | Gemini 3.1 Pro Preview | 1M | Vision, Tools |
+| **Kimi** | K2.6, K2.7 | 1M | Vision, Tools |
+| **GLM** | GLM 5.2 | 200K | Tools |
+
+> ⭐ **Recommended:** Try the `auto` model. The guide recommends it because OmniRoute can automatically select an available provider based on the request, cost, and availability.
+
+### 📸 All Models
+
+```text
+images/09-all-models.png
+```
+
+---
+
+# 📅 Daily Workflow
+
+Once everything is configured, your normal workflow is simple:
+
+### 1. Start OmniRoute
+
+Either double-click:
+
+```text
+start-omniroute.bat
+```
+
+or run:
+
+```bash
 omniroute
-Step 2: Open VS Code
+```
+
+### 2. Open VS Code
+
 Launch Visual Studio Code.
 
-Step 3: Start Chatting!
-Open Copilot Chat (Ctrl + Shift + I)
+### 3. Open Copilot Chat
 
-Select an OmniRoute model (or use "auto")
+```text
+Ctrl + Shift + I
+```
 
-Type your question and get AI-powered help!
+### 4. Select a Model
 
-💡 You can keep OmniRoute running and just minimize the terminal window. It won't interfere with your work.
+Choose an OmniRoute model or:
 
-❓ Troubleshooting
-"npm is not recognized"
-Solution: Node.js is not installed or not in your PATH.
+```text
+auto
+```
 
-Download and install Node.js LTS from nodejs.org
+### 5. Start Building 🚀
 
-Restart your computer after installation
+Ask questions, generate code, debug problems, explain concepts, and work with your preferred AI models.
 
-"Can't find OmniRoute in model picker"
-Solution: Restart or refresh:
+> 💡 You can minimize the OmniRoute terminal while keeping the server running.
 
-Click "Refresh models in the picker" in OmniCopilot settings
+---
 
-Restart VS Code
+# ❓ Troubleshooting
 
-"Connection refused" or "Failed to connect"
-Solution: OmniRoute isn't running:
+## `npm is not recognized`
 
-Check if OmniRoute is running in your terminal
+### Cause
 
-Run omniroute to start it
+Node.js is either not installed or is missing from your system `PATH`.
 
-Make sure the terminal window stays open
+### Fix
 
-"Invalid API key"
-Solution: Your API key may be expired or incorrect:
+1. Install the Node.js LTS release.
+2. Ensure Node.js is added to `PATH`.
+3. Restart your terminal or computer.
+4. Verify:
 
-Go to dashboard (http://localhost:20128)
+```bash
+node --version
+npm --version
+```
 
-Generate a new API key
+---
 
-Update it in VS Code settings
+## OmniRoute doesn't appear in the model picker
 
-💡 Tips & Tricks
-1. Use "auto" model for best results
-Let OmniRoute automatically pick the best provider based on your request type, cost, and availability.
+Try:
 
-2. Connect free providers
-In the dashboard → Providers, connect:
+1. Refresh the models in OmniCopilot settings.
+2. Restart VS Code.
+3. Make sure OmniRoute is running.
 
-OpenCode Free – no signup needed
+---
 
-Kiro AI – free Claude access
+## `Connection refused` / `Failed to connect`
 
-Kimi Moonshot – free tier available
+Make sure the OmniRoute server is running:
 
-3. Monitor your usage
-Check the dashboard → Free Tiers to see your available tokens across all providers.
+```bash
+omniroute
+```
 
-4. Try different models
-Switch between GPT, Claude, Gemini, and others to find what works best for you.
+Then verify the local dashboard:
 
-5. Keep OmniRoute updated
-bash
+```text
+http://localhost:20128
+```
+
+Keep the OmniRoute terminal open.
+
+---
+
+## `Invalid API key`
+
+Your API key may be incorrect or expired.
+
+Try:
+
+1. Open the OmniRoute dashboard.
+2. Generate a new API key.
+3. Update the key in OmniCopilot settings.
+4. Test the connection again.
+
+---
+
+# 💡 Tips & Tricks
+
+### 1️⃣ Use `auto`
+
+Let OmniRoute choose an available provider/model automatically.
+
+```text
+auto
+```
+
+---
+
+### 2️⃣ Connect Free Providers
+
+From:
+
+**Dashboard → Providers**
+
+The source guide mentions:
+
+- **OpenCode Free**
+- **Kiro AI**
+- **Kimi Moonshot**
+
+Availability and provider terms can change, so check the provider configuration shown in your current OmniRoute dashboard.
+
+---
+
+### 3️⃣ Monitor Free-Tier Usage
+
+Open:
+
+**Dashboard → Free Tiers**
+
+Use this section to monitor available free-token resources across connected providers.
+
+---
+
+### 4️⃣ Experiment With Different Models
+
+Try different model families for different tasks:
+
+```text
+GPT
+Claude
+Gemini
+Kimi
+GLM
+```
+
+---
+
+### 5️⃣ Keep OmniRoute Updated
+
+Run:
+
+```bash
 npm update -g omniroute
-6. Use compression to save tokens
-OmniRoute automatically compresses requests, saving 15-95% of tokens.
-
-🔗 Support & Resources
-OmniRoute GitHub: github.com/diegosouzapw/OmniRoute
-
-OmniCopilot Extension: VS Code Marketplace
-
-Official Website: omniroute.online
-
-Community Discord: discord.gg/U47eFqAXCn
-
-🎊 Congratulations!
-You now have FREE access to:
-
-✅ 1200+ AI models (Claude, GPT, Gemini, DeepSeek, Kimi, GLM and more)
-
-✅ 350+ AI providers, including 150+ free tiers
-
-✅ ~1.51 billion free tokens per month
-
-✅ Auto-fallback if one provider fails
-
-✅ Token compression saving 15-95%
-
-✅ All inside VS Code Copilot Chat
-
-Enjoy building with the power of AI – completely free! 🚀
-
-📄 License
-This guide is licensed under the MIT License – feel free to share, modify, and improve it.
-
-🙏 Acknowledgments
-OmniRoute Team – for creating this amazing tool
-
-Kimi (Moonshot AI) – founding Open Source Friend
-
-Open Source Community – for supporting free AI access
-
-Made with ❤️ for the open-source community
-
-Last Updated: September 2026
-
-text
+```
 
 ---
 
-## 📝 **What to Do Now**
+### 6️⃣ Take Advantage of Compression
 
-### Step 1: Go to Your GitHub Repository
-Open: `https://github.com/YOUR_USERNAME/omniroute-setup-guide`
+The guide states that OmniRoute can compress requests and reduce token usage by approximately:
 
-### Step 2: Edit README.md
-1. Click on **`README.md`**
-2. Click the **pencil icon** (✏️) to edit
-
-### Step 3: Replace Everything
-1. **Delete all** existing content
-2. **Paste** the entire text above
-3. **Scroll down** to "Commit changes"
-4. **Type:** `📝 Updated README with complete guide`
-5. Click **"Commit changes"**
-
-### Step 4: Check Your Guide
-1. **Refresh** the page
-2. **Scroll down** – you'll see your complete guide with all images!
+```text
+15% – 95%
+```
 
 ---
 
-## 🎯 **Your Image Paths Are Correct**
+# 🖼️ Screenshots
 
-All your images are saved as:
-images/01-vscode-welcome.png
-images/02-vscode-start.png
-images/03-terminal-omniroute.png
-images/04-dashboard-home.png
-images/05-dashboard-features.png
-images/06-api-keys.png
-images/07-omniroute-running.png
-images/08-model-picker.png
-images/09-all-models.png
+Keep the following images inside the repository's `images/` directory:
 
-text
+```text
+images/
+├── 01-vscode-welcome.png
+├── 02-vscode-start.png
+├── 03-terminal-omniroute.png
+├── 04-dashboard-home.png
+├── 05-dashboard-features.png
+├── 06-api-keys.png
+├── 07-omniroute-running.png
+├── 08-model-picker.png
+└── 09-all-models.png
+```
 
-These will display **automatically** in your README! 🎉
+To display an image in Markdown, use:
+
+```md
+![Description](images/01-vscode-welcome.png)
+```
+
+For example:
+
+```md
+![VS Code Welcome Screen](images/01-vscode-welcome.png)
+```
+
+> 📌 Make sure the image paths are **relative to `README.md`** and use the exact filenames stored in your repository.
 
 ---
 
-## 🎊 **Done!**
+# 🔗 Resources
 
-Your guide is now complete and professional!
+- 🌐 **OmniRoute GitHub:** `github.com/diegosouzapw/OmniRoute`
+- 🧩 **OmniCopilot:** VS Code Marketplace
+- 🌍 **Official Website:** `omniroute.online`
+- 💬 **Community Discord:** `discord.gg/U47eFqAXCn`
 
-**Share it:**
-https://github.com/YOUR_USERNAME/omniroute-setup-guide
+---
 
-text
+# 🎉 What You Get
 
-**Need to make changes?** Just edit README.md again! 😊
+After completing this setup, the guide aims to give you:
+
+| Benefit | Included |
+|---|:---:|
+| 🤖 1200+ AI models | ✅ |
+| 🌐 350+ AI providers | ✅ |
+| 🆓 Free-tier providers | ✅ |
+| 🔄 Automatic fallback | ✅ |
+| 🗜️ Token compression | ✅ |
+| 💻 VS Code Copilot Chat integration | ✅ |
+| 📊 Usage monitoring | ✅ |
+
+> 🚀 **Build faster. Experiment with more models. Keep your AI workflow in VS Code.**
+
+---
+
+# 📄 License
+
+This guide is licensed under the **MIT License**.
+
+Feel free to share, modify, and improve it.
+
+---
+
+# 🙏 Acknowledgments
+
+Thanks to:
+
+- **OmniRoute Team** — for developing the gateway
+- **Kimi / Moonshot AI** — for supporting open-source AI access
+- **Open Source Community** — for building and maintaining accessible AI tooling
+
+---
+
+<div align="center">
+
+### ❤️ Made for the Open-Source Community
+
+**If this guide helped you, consider ⭐ starring the repository!**
+
+</div>
+
+---
+
+<p align="center">
+  <sub>Last updated: September 2026</sub>
+</p>
