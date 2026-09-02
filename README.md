@@ -97,6 +97,10 @@ Node.js is required to run OmniRoute and its package manager, `npm`.
 5. Complete the installation.
 6. Restart your computer if necessary.
 
+### 📸 VS Code
+
+![VS Code Welcome Screen](images/01-vscode-welcome.png)
+
 ### ✅ Verify Node.js
 
 Open a terminal in VS Code or Command Prompt:
@@ -129,6 +133,8 @@ npm install -g omniroute
 
 This installs OmniRoute globally.
 
+![VS Code OmniRoute Installation](images/02-vscode-start.png)
+
 > ⏱️ Installation may take a few minutes. Some npm warnings may appear during installation.
 
 ---
@@ -148,6 +154,10 @@ A successful startup should provide local endpoints similar to:
 📡 Dashboard: http://localhost:20128
 🔗 API:       http://localhost:20128/v1
 ```
+
+### 📸 OmniRoute Running
+
+![OmniRoute Running in Terminal](images/03-terminal-omniroute.png)
 
 ### ⚠️ Important
 
@@ -206,11 +216,7 @@ The dashboard acts as the main control center.
 
 ### 📸 Dashboard
 
-Place your screenshot here:
-
-```text
-images/04-dashboard-home.png
-```
+![OmniRoute Dashboard](images/04-dashboard-home.png)
 
 ---
 
@@ -244,9 +250,7 @@ Copy the API key immediately and store it securely.
 
 ### 📸 API Key Screenshot
 
-```text
-images/06-api-keys.png
-```
+![OmniRoute API Keys](images/06-api-keys.png)
 
 ---
 
@@ -272,9 +276,7 @@ Click **Install**.
 
 ### 📸 Extension Screenshot
 
-```text
-images/07-omniroute-running.png
-```
+![OmniCopilot Setup](images/07-omniroute-running.png)
 
 ---
 
@@ -325,9 +327,7 @@ Then:
 
 ### 📸 Model Picker
 
-```text
-images/08-model-picker.png
-```
+![VS Code Model Picker](images/08-model-picker.png)
 
 ---
 
@@ -347,9 +347,7 @@ The original guide lists models from several major providers.
 
 ### 📸 All Models
 
-```text
-images/09-all-models.png
-```
+![Available OmniRoute Models](images/09-all-models.png)
 
 ---
 
@@ -532,36 +530,34 @@ The guide states that OmniRoute can compress requests and reduce token usage by 
 
 ---
 
-# 🖼️ Screenshots
+## 🖼️ Screenshot Gallery
 
-Keep the following images inside the repository's `images/` directory:
-
-```text
-images/
-├── 01-vscode-welcome.png
-├── 02-vscode-start.png
-├── 03-terminal-omniroute.png
-├── 04-dashboard-home.png
-├── 05-dashboard-features.png
-├── 06-api-keys.png
-├── 07-omniroute-running.png
-├── 08-model-picker.png
-└── 09-all-models.png
-```
-
-To display an image in Markdown, use:
-
-```md
-![Description](images/01-vscode-welcome.png)
-```
-
-For example:
-
-```md
+### 1. VS Code Welcome
 ![VS Code Welcome Screen](images/01-vscode-welcome.png)
-```
 
-> 📌 Make sure the image paths are **relative to `README.md`** and use the exact filenames stored in your repository.
+### 2. OmniRoute Installation
+![VS Code OmniRoute Installation](images/02-vscode-start.png)
+
+### 3. OmniRoute Running
+![OmniRoute Running in Terminal](images/03-terminal-omniroute.png)
+
+### 4. Dashboard
+![OmniRoute Dashboard](images/04-dashboard-home.png)
+
+### 5. Dashboard Features
+![OmniRoute Dashboard Features](images/05-dashboard-features.png)
+
+### 6. API Keys
+![OmniRoute API Keys](images/06-api-keys.png)
+
+### 7. OmniCopilot
+![OmniCopilot Setup](images/07-omniroute-running.png)
+
+### 8. Model Picker
+![VS Code Model Picker](images/08-model-picker.png)
+
+### 9. Available Models
+![Available OmniRoute Models](images/09-all-models.png)
 
 ---
 
